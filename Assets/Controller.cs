@@ -7,6 +7,12 @@ public class Controller : MonoBehaviour
     [SerializeField]
     GameObject lastPos;
     bool isMoving;
+    [SerializeField]
+    GameObject hammer;
+    private void Start()
+    {
+        ObstacleMovement();
+    }
     void Update()
     {
         Debug.Log(isMoving);
@@ -31,6 +37,10 @@ public class Controller : MonoBehaviour
         {
             playerAgent.isStopped = true; 
         }
+    }
+    void ObstacleMovement()
+    {
+        iTween.RotateTo(hammer, iTween.Hash("z", -90, "time", 1, "loopType", iTween.LoopType.pingPong, "easetype", iTween.EaseType.easeInCirc)) ;
     }
   
 }
